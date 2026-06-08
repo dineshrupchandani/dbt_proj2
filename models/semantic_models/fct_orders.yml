@@ -1,0 +1,44 @@
+version: 2
+
+semantic_models:
+  - name: orders_source
+    description: "The core semantic model for tracking customer orders, payments, and fulfillment."
+    model: ref('fct_orders') # References your standard dbt model
+    defaults:
+      agg_time_dimension: ordered_at
+
+    # 1. ENTITIES: The join keys used to connect different tables together
+    entities:
+      - name: orders
+        type: primary
+        expr: order_id
+
+    # 2. DIMENSIONS: Attributes you use to slice and dice your metrics
+    dimensions:
+      - name: ordered_at
+        type: time
+        type_params:
+          time_granularity: day
+      - name: order_status
+        type: categorical
+        expr: status_code
+
+    # 3. MEASURES: The raw building blocks (aggregations) extracted from this model
+    measures:
+      - name: order_total_amount
+        description: "The total gross value of orders before discounts."
+        expr: order_amount
+        agg: sum
+      - name: order_count
+        description: "Distinct count of successfully placed orders."
+        expr: order_id
+        agg: count_distinct
+
+# 4. METRICS: The final, user-facing KPIs exposed directly to your BI tool
+metrics:
+  - name: revenue
+    description: "Total company revenue generated from order transactions."
+    label: "Total Revenue"
+    type: simple
+    type_params:
+      measure: order_total_amount
