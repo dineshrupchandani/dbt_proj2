@@ -38,7 +38,7 @@ semantic_models:
 metrics:
   - name: total_revenue
     description: "Total company revenue generated from order transactions."
-    label: "Total Revenue"
+    label: "Total Revenue Testing"
     type: simple
     type_params:
       measure: order_total_amount
