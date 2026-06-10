@@ -36,7 +36,7 @@ semantic_models:
 
 # 4. METRICS: The final, user-facing KPIs exposed directly to your BI tool
 metrics:
-  - name: revenue
+  - name: total_revenue
     description: "Total company revenue generated from order transactions."
     label: "Total Revenue"
     type: simple
