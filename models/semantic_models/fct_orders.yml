@@ -37,4 +37,4 @@ metrics:
     label: "Total Revenue Testing"
     type: simple
     type_params:
-      input_measure: order_total_amount # <-- Changed from 'measure' to 'input_measure'
+      measure: order_total_amount # <-- Changed from 'measure' to 'input_measure'
