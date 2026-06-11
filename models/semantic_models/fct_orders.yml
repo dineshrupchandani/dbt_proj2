@@ -34,11 +34,3 @@ semantic_models:
         expr: order_id
         agg: count_distinct
 
-# 4. METRICS: The final, user-facing KPIs exposed directly to your BI tool
-metrics:
-  - name: total_revenue
-    description: "Total company revenue generated from order transactions."
-    label: "Total Revenue Testing"
-    type: simple
-    type_params:
-      measure: order_total_amount
