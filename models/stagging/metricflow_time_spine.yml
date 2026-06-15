@@ -1,5 +1,5 @@
 models:
-  - name: all_days
+  - name: metricflow_time_spine
     description: A time spine with one row per day, ranging from 2020-01-01 to 2039-12-31.
     time_spine:
       standard_granularity_column: date_day  # Column for the standard grain of your table
