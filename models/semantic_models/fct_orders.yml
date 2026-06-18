@@ -31,6 +31,7 @@ semantic_models:
         expr: order_id
         agg: count_distinct
 
+
 metrics:
   - name: total_revenue
     description: "Total company revenue generated from order transactions."
@@ -38,3 +39,10 @@ metrics:
     type: simple
     type_params:
       measure: order_total_amount # <-- Changed from 'measure' to 'input_measure'
+
+  - name: total_orders
+    description: "Total orders"
+    label: "Total orders"
+    type: simple
+    type_params:
+      measure: order_count # <-- Changed from 'measure' to 'input_measure'      

@@ -16,7 +16,7 @@ payments as (
 order_payments as (
     select
         order_id,
-        sum(case when payment_status = 'success' then payment_amount else 0 end) as total_amount_paid
+        sum(payment_amount) as total_amount_paid
     from payments
     group by 1
 )
@@ -30,7 +30,7 @@ select
     orders.order_status_code as status_code,
     
     -- 3. Time Dimensions (Must be fully qualified timestamps/dates)
-    cast(orders.order_date as timestamp) as ordered_at,
+    orders.order_date as ordered_at,
 
     -- 4. Raw Measures (The columns your aggregations will build upon)
     coalesce(order_payments.total_amount_paid, 0) as order_amount

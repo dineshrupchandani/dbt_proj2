@@ -10,6 +10,7 @@ semantic_models:
     entities:
           - name: spine_date
             type: primary
+            expr: date_day
 
     measures: []
 

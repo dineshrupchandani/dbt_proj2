@@ -1,0 +1,15 @@
+version: 2
+
+saved_queries:
+  - name: monthly_revenue_report
+    query_params:
+      metrics:
+        - total_revenue
+      group_by:
+        - Dimension('metricflow_time_spine__date_day__month')
+# Exports sits parallel to query_params
+    exports:
+      - name: monthly_revenue_cache
+        config:
+          export_as: table      # Required parameter for export targets
+          alias: agg_monthly_revenue 
