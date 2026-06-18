@@ -7,7 +7,7 @@ saved_queries:
         - total_revenue
       group_by:
         - Dimension('orders__order_status')
-        - Dimension('metricflow_time_spine__date_day__month')
+        - TimeDimension('metric_time', 'month')
 # Exports sits parallel to query_params
     exports:
       - name: status_revenue_cache
