@@ -9,6 +9,9 @@ saved_queries:
         - Dimension('orders__order_status')
         - TimeDimension('orders__ordered_at__day')
 # Exports sits parallel to query_params
+    config:
+      cache:
+        enabled: true
     exports:
       - name: status_revenue_cache
         config:
