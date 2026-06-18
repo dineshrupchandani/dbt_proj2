@@ -5,7 +5,7 @@ semantic_models:
     description: "The core semantic model for tracking customer orders, payments, and fulfillment."
     model: ref('fct_orders')
     defaults:
-      agg_time_dimension: ordered_at
+      agg_time_dimension: metric_time
 
     entities:
       - name: orders
@@ -13,10 +13,11 @@ semantic_models:
         expr: order_id
 
     dimensions:
-      - name: ordered_at
+      - name: metric_time
         type: time
         type_params:
           time_granularity: day
+        expr: ordered_at  
       - name: order_status
         type: categorical
         expr: status_code
