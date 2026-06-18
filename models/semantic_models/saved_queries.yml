@@ -7,7 +7,7 @@ saved_queries:
         - total_revenue
       group_by:
         - Dimension('orders__order_status')
-        - TimeDimension('orders__ordered_at__day')
+        - TimeDimension('metric_time','day')
 # Exports sits parallel to query_params
     config:
       cache:
